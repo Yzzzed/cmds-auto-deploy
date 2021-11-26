@@ -1,3 +1,4 @@
 node_modules/
 dist/
 .history/
+deploy.config.js
