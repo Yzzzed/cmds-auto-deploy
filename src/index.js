@@ -8,22 +8,25 @@ const compress = require('./utils/compress')
 const sshServer = require('./utils/ssh')
 const upload = require('./utils/upload')
 const run = require('./utils/command')
+const unzip = require('./utils/unzip')
 
-async function main() {
+async function deploy() {
+  const { ssh, connect } = sshServer
   try {
     const SELECTED_CONFIG = await helper(config)
     console.log(chalk.green('部署项目: ', SELECTED_CONFIG.name))
     const targetFile = filename(SELECTED_CONFIG)
     const localFile = path.join(__dirname, targetFile)
     await compress(SELECTED_CONFIG, localFile)
-    await sshServer.connect(SELECTED_CONFIG.ssh)
-    await upload(sshServer.ssh, SELECTED_CONFIG, localFile, targetFile)
-    await run(sshServer.ssh, 'tar -xzf ' + targetFile, SELECTED_CONFIG.deployDir)
-    await run(sshServer.ssh, 'mv ' + SELECTED_CONFIG.targetName + ' ' + SELECTED_CONFIG.releaseDir, SELECTED_CONFIG.deployDir)
-    await run(sshServer.ssh, 'rm -f ' + targetFile, SELECTED_CONFIG.deployDir)
+    await connect(SELECTED_CONFIG.ssh)
+    await upload(ssh, SELECTED_CONFIG, localFile, targetFile)
+    await unzip(ssh, SELECTED_CONFIG, targetFile)
+    await run(ssh, 'mv ' + SELECTED_CONFIG.targetName + ' ' + SELECTED_CONFIG.releaseDir, SELECTED_CONFIG.deployDir)
+    await run(ssh, 'rm -f ' + targetFile, SELECTED_CONFIG.deployDir)
     await unlink(localFile, err => {
       if(err) throw err
     })
+    console.log(chalk.green('------- 部署成功 -------'))
   } catch (e) {
     console.log(chalk.red('部署出现错误: ', e))
   } finally {
@@ -31,4 +34,4 @@ async function main() {
   }
 }
 
-main()
+module.exports = deploy
