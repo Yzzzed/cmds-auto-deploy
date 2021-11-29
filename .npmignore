@@ -1,3 +1,5 @@
 node_modules/
 src/
 dist/
+.babelrc
+deploy.config.js

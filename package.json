@@ -1,13 +1,19 @@
 {
-  "name": "mydeploy",
+  "name": "cmds-deploy",
   "version": "0.1.0",
-  "description": "",
-  "main": "src/index.js",
+  "description": "An auto deploy cli created by node.js",
+  "main": "lib/index.js",
+  "bin": {
+    "cmds-deploy": "bin/cmds-deploy.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib",
-    "build:watch": "npm run build -- --watch"
+    "build:watch": "npm run build --watch"
   },
+  "os": [
+    "win32"
+  ],
   "author": "Yzed",
   "license": "MIT",
   "publishConfig": {
@@ -16,11 +22,22 @@
   "dependencies": {
     "archiver": "^5.3.0",
     "chalk": "^4.1.2",
+    "commander": "^8.3.0",
     "inquirer": "^8.2.0",
     "node-ssh": "^12.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yzzzed/auto-deploy.git"
+  },
+  "keywords": [
+    "auto",
+    "deploy",
+    "node.js",
+    "frontend"
+  ]
 }
