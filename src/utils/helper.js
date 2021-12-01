@@ -27,7 +27,7 @@ async function helper(config) {
       type: 'input',
       name: 'port',
       message: '请输入主机端口: ',
-      default: 22,
+      default: config.length > 0 ? config[0].ssh.port > 0 ? config[0].ssh.port: 22 : 22,
       when: answer => answer.host,
       validate: value => {
         if(value > 0 && value <= 65535) {
@@ -40,7 +40,7 @@ async function helper(config) {
       type: 'input',
       name: 'username',
       message: '输入主机用户名: ',
-      default: 'root',
+      default: config.length && config[0].ssh.username ||'root',
       when: answer => answer.host
     },
     {
