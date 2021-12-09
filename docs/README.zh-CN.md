@@ -1,5 +1,5 @@
 # cmds-auto-deploy
-<img src="https://img.shields.io/npm/l/cmds-auto-deploy" alt="license"> <img src="https://img.shields.io/github/package-json/v/Yzzzed/cmds-auto-deploy" alt="version"> <img src="https://img.shields.io/bundlephobia/min/cmds-auto-deploy" alt="size"> <img src="https://img.shields.io/github/last-commit/Yzzzed/cmds-auto-deploy" alt="last-commit"> <img src="https://img.shields.io/npm/dt/cmds-auto-deploy" alt="downloads">
+<img src="https://img.shields.io/npm/l/cmds-auto-deploy" alt="license"> <img src="https://img.shields.io/github/package-json/v/Yzzzed/cmds-auto-deploy" alt="version"> <img src="https://img.shields.io/github/last-commit/Yzzzed/cmds-auto-deploy" alt="last-commit"> <img src="https://img.shields.io/npm/dt/cmds-auto-deploy" alt="downloads">
 
 使用nodejs实现的一个自动部署工具。
 
