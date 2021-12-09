@@ -17,7 +17,8 @@
   "author": "Yzed",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "@Yzzzed:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "archiver": "^5.3.0",
