@@ -3,3 +3,4 @@ src/
 dist/
 .babelrc
 deploy.config.js
+.history
