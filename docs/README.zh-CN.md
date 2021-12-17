@@ -36,6 +36,8 @@
     },
     ...
   ]
+
+  module.exports = config
   ```
 * 添加一条scripts命令到package.json。
   ```json

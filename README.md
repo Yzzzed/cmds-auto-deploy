@@ -35,6 +35,8 @@ Read this in Chinese: [_简体中文_](docs/README.zh-CN.md)
     },
     ...
   ]
+
+  module.exports = config
   ```
 * Add script on your package.json.
   ```json
