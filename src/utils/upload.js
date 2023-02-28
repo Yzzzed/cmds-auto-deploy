@@ -27,15 +27,6 @@ async function handleRemoteSourceFile(ssh, config) {
     )
   } else {
     console.log('------- 未开启远端备份 -------')
-    await run(
-      ssh,
-      `
-      if [ -d ${config.releaseDir} ];
-      then mv ${config.releaseDir} ${config.releaseDir}_${getTime()}
-      fi
-      `,
-      config.deployDir
-    )
   }
 }
 
